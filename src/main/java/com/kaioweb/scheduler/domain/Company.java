@@ -1,24 +1,14 @@
 package com.kaioweb.scheduler.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
 public class Company {
+	private Long id;
 	private String name;
 
-	public Company(String name) {
-		super();
-		this.name = name;
-	}
-	
-	public Company() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 	
 	
 	

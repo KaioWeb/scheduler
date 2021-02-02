@@ -8,22 +8,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kaioweb.scheduler.domain.Company;
+import com.kaioweb.scheduler.service.CompanyService;
 import com.kaioweb.scheduler.util.DateUtil;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("api/companies")
 @Log4j2
 @RequiredArgsConstructor
 public class CompanyController {
 	private final DateUtil dateUtil;
+	private final CompanyService companyService;
 	
-	@GetMapping(path = "list")
+	@GetMapping
 	public List<Company> list(){
 		log.info("data "+dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
-		return List.of(new Company("Cabelereiro 1"), new Company("Dentista 1"));
+		return companyService.listAll();
 		
 	}
 
